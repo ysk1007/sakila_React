@@ -29,7 +29,8 @@ export default function Address() {
     }, [pageNumber]); // 두번째 인자가 []이면 처음 화면 랜더링때 한번만 useEffect() 실행
   return (
     <div>
-    <h1>주소 리스트</h1>
+    <label>주소 항목</label>
+    <Link className='btn' to="/AddAddress">추가</Link>
     <table className='min-w-full divide-y divide-gray-200 text-sm text-left'>
         <tr>
             <th>#</th><th>주소</th>
@@ -37,7 +38,7 @@ export default function Address() {
         {
             addressList.map((a)=>(
                 <tr key={a.addressId}>
-                  <td>{a.addressId}</td><td><Link to="/">{a.address}</Link></td>
+                  <td>{a.addressId}</td><td><Link to={`/AddressOne/`+a.addressId}>{a.address}</Link></td>
                 </tr>
             ))
         }

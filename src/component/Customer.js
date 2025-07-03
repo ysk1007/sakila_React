@@ -29,15 +29,16 @@ export default function Customer() {
         }, [pageNumber]); // 두번째 인자가 []이면 처음 화면 랜더링때 한번만 useEffect() 실행
       return (
         <div>
-        <h1>고객 리스트</h1>
+        <label>고객 항목</label>
+        <Link className='btn' to="/AddCustomer">추가</Link>
         <table className='min-w-full divide-y divide-gray-200 text-sm text-left'>
             <tr>
-                <th>#</th><th>고객 이름</th>
+                <th>#</th><th>고객 이름 (성 + 이름)</th>
             </tr>
             {
                 customerList.map((c)=>(
                     <tr key={c.customerId}>
-                      <td>{c.customerId}</td><td><Link to="/">{c.firstName} {c.lastName}</Link></td>
+                      <td>{c.customerId}</td><td><Link to={`/CustomerOne/`+c.customerId}>{c.firstName} {c.lastName}</Link></td>
                     </tr>
                 ))
             }

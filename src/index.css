@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* 전역 링크 */
+body {
+  @apply bg-gray font-ft;
+}
+
+Link{
+    @apply bg-gray;
+}
+
+.btn{
+    @apply px-3 py-1 bg-gray border border-dark shadow-bs hover:bg-gray hover:brightness-105;
+}
+
+button{
+    @apply px-3 py-1 bg-gray border border-dark shadow-bs hover:bg-gray hover:brightness-105;
+}
+
+input{
+  @apply w-64 px-2 py-1 text-sm bg-white text-black 
+         border border-black 
+         shadow-[inset_-1px_-1px_#fff,inset_1px_1px_#808080]
+         focus:outline-none focus:ring-0 font-ft;
+}
+
+label{
+  @apply text-sm font-bold text-black font-ft block mb-1;
+}

@@ -29,7 +29,8 @@ export default function City() {
       }, [pageNumber]); // 두번째 인자가 []이면 처음 화면 랜더링때 한번만 useEffect() 실행
     return (
       <div>
-      <h1>도시 리스트</h1>
+      <label>도시 항목</label>
+      <Link to="/AddCity" className='btn'>추가</Link>
       <table className='min-w-full divide-y divide-gray-200 text-sm text-left'>
           <tr>
               <th>#</th><th>도시</th>
@@ -37,7 +38,7 @@ export default function City() {
           {
               cityList.map((c)=>(
                   <tr key={c.cityId}>
-                    <td>{c.cityId}</td><td><Link to="/">{c.city}</Link></td>
+                    <td>{c.cityId}</td><td><Link to={`/CityOne/`+c.cityId}>{c.city}</Link></td>
                   </tr>
               ))
           }

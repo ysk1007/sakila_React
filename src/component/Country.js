@@ -30,7 +30,8 @@ export default function Country() {
     }, [pageNumber]); // 두번째 인자가 []이면 처음 화면 랜더링때 한번만 useEffect() 실행
   return (
     <div>
-    <h1>나라 리스트</h1>
+    <label>나라 항목</label>
+    <Link to="/AddCountry" className="btn">추가</Link>
     <table className='min-w-full divide-y divide-gray-200 text-sm text-left'>
         <tr>
             <th>#</th><th>나라</th>
@@ -38,7 +39,7 @@ export default function Country() {
         {
             countryList.map((c)=>(
                 <tr key={c.countryId}>
-                <td>{c.countryId}</td><td><Link to="/">{c.country}</Link></td>
+                <td>{c.countryId}</td><td><Link to={`/CountryOne/${c.countryId}`}>{c.country}</Link></td>
                 </tr>
             ))
         }
