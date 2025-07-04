@@ -30,7 +30,6 @@ export default function AddCountry() {
             <label htmlFor="country">나라</label><input type="text" id="country" onChange={(e)=>{setCountry(e.target.value)}}></input><br />
             <br />
             <button onClick={addCountry}>입력</button>
-            <div>{country}</div>
         </div>
     </div>
   )

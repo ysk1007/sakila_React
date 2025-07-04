@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 export default function CustomerOne() {
     const {customerId} = useParams();
@@ -7,6 +8,7 @@ export default function CustomerOne() {
     const [storeOne, setStoreOne] = useState([]);
     const [addressOne, setAddressOne] = useState([]);
     const [cityOne, setCityOne] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(()=>{
         fetch(`http://localhost/customerOne/${customerId}`)
@@ -19,6 +21,24 @@ export default function CustomerOne() {
         })
 
     });
+
+    function remove(){
+        if(!window.confirm('삭제 하시겠습니까?')) return;
+
+        fetch(`http://localhost/customerDelete/${customerId}`,
+            {
+                method: 'DELETE'
+            }
+        )
+        .then((res)=>{
+            if(res.ok){ // 200
+                navigate('/Customer');
+            }
+            else{       // http code 500
+                window.alert('삭제 실패');
+            }
+        })
+    }
 
   return (
     <div>
@@ -47,6 +67,12 @@ export default function CustomerOne() {
             </tr>
             
         </table>
+
+        <div>
+            <button onClick={remove}>삭제</button>
+            <button onClick={()=>{navigate(`/EditCustomer/${customerId}`)}}>수정</button>
+        </div>
+
     </div>
   )
 }

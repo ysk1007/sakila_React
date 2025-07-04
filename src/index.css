@@ -4,7 +4,7 @@
 
 /* 전역 링크 */
 body {
-  @apply bg-gray font-ft;
+  @apply bg-green font-ft;
 }
 
 Link{
